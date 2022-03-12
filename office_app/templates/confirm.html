@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Confirm{% endblock title %}
+{% block body %}
+{% if emp %}
+<div class="container my-4 h3 text-center" style='list-style:none'>
+    <h1 class='text-center mt-5'>Are you sure you want to remove this emploee ?</h1>
+    <hr>
+    <li>Name : {{emp.first_name}} {{emp.last_name}}</li>
+    <li>Department : {{emp.department}}</li>
+    <li>Role : {{emp.role}}</li>
+    <li>ID : {{emp.id}}</li>
+    <hr>
+</div>
+
+{% endif %}
+<form  method="post">
+    {% csrf_token %}
+    <div class="container text-center">
+        
+       <button type="submit" class="btn btn-outline-danger mx-5 my-5">Yes</button>
+        <a style='' class="btn btn-outline-success mx-5 my-5" href="{% url 'remove_emp' %}" role="button">No</a>    
+    </div>
+
+</form>
+
+
+{% endblock body %}

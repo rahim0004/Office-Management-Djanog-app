@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block body %}
+{% if registered %}
+<div class="container text-center">
+    <h1>You are successfully registered</h1>
+
+</div>
+{% endif %}
+<form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container-sm mt-5 py-4 px-4" style='height:500px'>
+        <h1 class="text-center">Register</h1>
+        {{user_form|crispy}} 
+        {{profile_form|crispy}}
+        <input class='btn-warning my-4 btn-lg' type="submit" value="Register">
+    </div>
+    
+    
+</form>
+
+{% endblock body %}

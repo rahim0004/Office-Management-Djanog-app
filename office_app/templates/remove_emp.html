@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Actions{% endblock title %}
+{% block body %}
+
+<h1 class="text-white text-center my-2">All Employee List</h1>
+<table class="table table-dark table-striped table-borderless container">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Department</th>
+        <th scope="col">Role</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Bonus</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for emp in emps %}
+        <tr>
+            <th scope="row">{{emp.id}}</th>
+            <td>{{emp.first_name}} {{emp.last_name}}</td>
+            <td>{{emp.department}}</td>
+            <td>{{emp.role}}</td>
+            <td>{{emp.salary}}</td>
+            <td>{{emp.bonus}}</td>
+            <td>{{emp.phone}}</td>
+            <td><a style='' class="btn btn-outline-warning" href="{% url 'update_emp' id=emp.id%}" role="button">Update</a>
+                <a style='' class="btn btn-outline-danger mx-2" href="{% url 'confirm_emp' id=emp.id%}" role="button">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+
+
+{% endblock body %}

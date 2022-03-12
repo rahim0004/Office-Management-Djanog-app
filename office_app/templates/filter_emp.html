@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+Filter Employee{% endblock title %}
+{% block body %}
+<form  method="post" class='text-white'>
+    {% csrf_token %}
+    <div class="container">
+        <h1 class='text-center mb-4'>Filter Employee</h1>
+
+        <label for="name">Employee First/Last Name</label>
+        <input type="text" name="name" id="name" value="{{name}}">
+        <button type="submit" class='btn-outline-success'>Search</button> <br>
+
+        
+        <label for="dept">Employee Department</label>
+        <input type="text" name="dept" id="dept" value="{{name}}">
+        <button type="submit" class='btn-outline-success mx-3 my-3'>Search</button><br>
+        
+        <label for="role">Employee Role</label>
+        <input type="text" name="role" id="role" value="{{name}}">
+        <button type="submit" class='btn-outline-success'>Search</button>
+    </div>
+</form>
+<div class="container" style='height: 500px;'></div>
+
+{% endblock body  %}

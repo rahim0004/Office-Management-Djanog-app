@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Add Employee{% endblock title %}
+{% block body %}
+<h1 class="text-white text-center my-4">{{title}}</h1>
+<form  method="POST">
+    <div class="container text-center">
+        {% csrf_token %}
+        {{form|crispy}}
+        <div class="container mt-3">
+            <button class="btn btn-outline-success" type="submit">{{text}}</button>
+            <a class="btn btn-outline-danger mx-2" href="{% url 'all_emp' %}" role="button">Cancel</a>
+        </div>
+        
+
+          </div>
+    </div>
+    
+    
+    
+</form>
+
+
+
+{% endblock body %}

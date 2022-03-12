@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
+  <body style='background-color:#171c2a;color:#ffd866;'>
+      <div class="container d-flex justify-content-between mt-3">
+          <div class="">  
+              <h1 class="" style='color:#00ea97'>Office Management</h1>
+            </div>          
+            <div class="">
+              {% if user.is_authenticated %}
+              <a style='' class="btn btn-outline-warning" href="{% url 'logout' %}" role="button">Log Out</a>
+              {% else %}
+              <a style='' class="btn btn-outline-warning" href="{% url 'registration' %}" role="button">Sign Up</a>
+              <a style='' class="btn btn-outline-warning mx-2" href="{% url 'user_login' %}" role="button">Sign In</a>
+              {% endif %}
+            </div>
+        </div>
+        
+        
+        <hr class='text-white' style='height:4px'>
+        {% if user.is_authenticated %}
+        <div class="container">
+          <a class="btn btn-outline-warning mx-1" href="{% url 'all_emp' %}" role="button">All Employee</a>
+          <a class="btn btn-outline-warning mx-1" href="{% url 'add_emp' %}" role="button">Add An Employee</a>
+          <a class="btn btn-outline-warning mx-1" href="{% url 'filter_emp' %}" role="button">Filter Employee</a>
+          <a class="btn btn-outline-warning mx-1" href="{% url 'remove_emp' %}" role="button"> Actions</a>
+          
+        </div>
+        {% endif %}
+        {% block body %}
+        
+      {% endblock body %}
+    </body>
+    </html>
